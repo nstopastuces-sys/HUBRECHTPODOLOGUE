@@ -1,17 +1,15 @@
-const header = document.querySelector('.site-header');
-const menu = document.querySelector('.menu-button');
+const header = document.querySelector('.header');
+const menu = document.querySelector('.menu');
 menu?.addEventListener('click', () => {
-  const expanded = header.classList.toggle('open');
-  menu.setAttribute('aria-expanded', String(expanded));
+  const open = header.classList.toggle('open');
+  menu.setAttribute('aria-expanded', String(open));
 });
-document.querySelectorAll('nav a').forEach(link => link.addEventListener('click', () => {
-  header.classList.remove('open'); menu?.setAttribute('aria-expanded', 'false');
-}));
+document.querySelectorAll('nav a').forEach(link => link.addEventListener('click', () => header.classList.remove('open')));
+document.querySelector('#year').textContent = new Date().getFullYear();
 document.querySelector('#contact-form')?.addEventListener('submit', event => {
   event.preventDefault();
   const form = event.currentTarget;
-  const message = form.querySelector('.form-message');
   if (!form.checkValidity()) { form.reportValidity(); return; }
-  message.textContent = 'Merci pour votre message. Le formulaire sera relié à la messagerie du cabinet avant la mise en ligne.';
+  form.querySelector('.form-message').textContent = 'Merci. L’envoi du formulaire sera relié à la messagerie du cabinet avant la mise en ligne.';
   form.reset();
 });
