@@ -27,6 +27,22 @@ map.innerHTML = `
   <div class="map-frame"><iframe title="Carte du cabinet Victoria Hubrecht à Moûtiers" src="https://www.google.com/maps?q=75+Avenue+du+Pre+de+Foire,+73600+Moutiers&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>`;
 document.querySelector('.contact')?.insertAdjacentElement('beforebegin', map);
 
+const about = document.querySelector('.about');
+if (about) {
+  about.innerHTML = `
+    <div class="about-grid">
+      <div><p class="about-label">Votre praticienne</p></div>
+      <div class="about-copy">
+        <p class="kicker">Victoria HUBRECHT</p>
+        <h2>Une attention portée à chaque parcours.</h2>
+        <p>Victoria HUBRECHT reçoit au cabinet de Moûtiers dans un cadre pensé pour l’écoute et l’échange. Son approche relie les besoins du quotidien, les habitudes de mouvement et la pratique sportive.</p>
+        <p>Parce que chaque personne avance à son rythme, l’accompagnement se construit à partir de vos questions et de votre situation.</p>
+        <p class="about-signature">Pédicure-Podologue D.E.<br>Posturologue · Podologue du Sport</p>
+        <p class="about-note">Texte de présentation à personnaliser et valider avec Victoria HUBRECHT.</p>
+      </div>
+    </div>`;
+}
+
 document.querySelector('#year').textContent = new Date().getFullYear();
 document.querySelector('#contact-form')?.addEventListener('submit', event => {
   event.preventDefault();
